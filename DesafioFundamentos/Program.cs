@@ -6,54 +6,65 @@ Console.OutputEncoding = System.Text.Encoding.UTF8;
 decimal precoInicial = 0;
 decimal precoPorHora = 0;
 
-Console.WriteLine("Seja bem vindo ao sistema de estacionamento!\n" +
-                  "Digite o preço inicial:");
+Console.WriteLine("================ESTACIONAMENTO BOM PREÇO=================\n");
+
+Console.Write("DIGITE O PREÇO INICIAL: ");
 precoInicial = Convert.ToDecimal(Console.ReadLine());
 
-Console.WriteLine("Agora digite o preço por hora:");
+Console.Write("DIGITE O PREÇO POR HORA: ");
 precoPorHora = Convert.ToDecimal(Console.ReadLine());
 
 // Instancia a classe Estacionamento, já com os valores obtidos anteriormente
-Estacionamento es = new Estacionamento(precoInicial, precoPorHora);
+Estacionamento BomPreco = new Estacionamento(precoInicial, precoPorHora);
 
-string opcao = string.Empty;
+int opcao ;
 bool exibirMenu = true;
 
-// Realiza o loop do menu
 while (exibirMenu)
-{
-    Console.Clear();
-    Console.WriteLine("Digite a sua opção:");
-    Console.WriteLine("1 - Cadastrar veículo");
-    Console.WriteLine("2 - Remover veículo");
-    Console.WriteLine("3 - Listar veículos");
-    Console.WriteLine("4 - Encerrar");
+{  
 
-    switch (Console.ReadLine())
-    {
-        case "1":
-            es.AdicionarVeiculo();
-            break;
+    Console.WriteLine("=========================");
+    Console.WriteLine("1 -> Cadastrar veículo".ToUpper());
+    Console.WriteLine("2 -> Remover veículo".ToUpper());
+    Console.WriteLine("3 -> Listar veículos".ToUpper());
+    Console.WriteLine("4 -> Encerrar".ToUpper());
+    Console.WriteLine("=========================");
+    Console.Write("Digite a sua opção: ".ToUpper());
+    
+    opcao = Convert.ToInt16(Console.ReadLine());
+    Console.WriteLine("=========================");
+   if(opcao == 1){
+    BomPreco.AdicionarVeiculo();
 
-        case "2":
-            es.RemoverVeiculo();
-            break;
+   }
+   else if (opcao == 2){
+    BomPreco.RemoverVeiculo();
 
-        case "3":
-            es.ListarVeiculos();
-            break;
 
-        case "4":
-            exibirMenu = false;
-            break;
 
-        default:
-            Console.WriteLine("Opção inválida");
-            break;
-    }
 
-    Console.WriteLine("Pressione uma tecla para continuar");
-    Console.ReadLine();
+   }
+   else if(opcao == 3){
+    BomPreco.ListarVeiculos();
+
+   }
+
+
+   else if(opcao == 4){
+
+    exibirMenu = false;
+   }
+
+   else{
+
+    Console.WriteLine("DIGITE UMA OPÇÃO VALIDA!");
+   }
+   
+   
+      
+
+    
 }
 
-Console.WriteLine("O programa se encerrou");
+
+Console.WriteLine("MUITO OBRIGADO VOLTE SEMPRE!!!");
